@@ -48,10 +48,15 @@
   --accent:#c9c4ba;
   --accent-2:#918c82;
   --accent-3:#6d6961;
+  --gray:#c2bdb4;        /* cinza medio: fundo das secoes claras */
   --line:rgba(230,227,221,.12);
   --line-strong:rgba(230,227,221,.26);
   --sans:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --wrap:1180px;
+  /* COLUNAS DAS FOTOS: troque de 4 para 2 se o cliente preferir duas colunas.
+     --cols-linhas = cards das linhas de material | --cols-chapas = galeria de chapas */
+  --cols-linhas:4;
+  --cols-chapas:4;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -207,7 +212,7 @@ h3{font-size:1.35rem;letter-spacing:-.03em;font-weight:600}
 @media(max-width:900px){.trav-grid{grid-template-columns:1fr;gap:32px}.trav-sticky{position:static}}
 
 /* ---------- diferenciais ---------- */
-.edge{background:var(--ink-2);border-top:1px solid var(--line)}
+.edge{border-top:1px solid var(--line)}
 .edge-list{margin-top:42px;border-top:1px solid var(--line)}
 .edge-item{display:grid;grid-template-columns:54px 1fr;gap:24px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start}
 .edge-mark{font-size:1.5rem;color:var(--accent);line-height:1;font-weight:800;letter-spacing:-.05em}
@@ -216,7 +221,7 @@ h3{font-size:1.35rem;letter-spacing:-.03em;font-weight:600}
 @media(max-width:600px){.edge-item{grid-template-columns:1fr;gap:10px}}
 
 /* ---------- catálogo ---------- */
-.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+.cat-grid{display:grid;grid-template-columns:repeat(var(--cols-linhas),1fr);gap:18px;margin-top:44px}
 .cat-card{border:1px solid var(--line);border-radius:2px;overflow:hidden;background:var(--ink-2);transition:border-color .3s ease,transform .3s ease}
 .cat-card:hover{border-color:var(--accent);transform:translateY(-4px)}
 .cat-card.feat{grid-column:auto}
@@ -227,19 +232,19 @@ h3{font-size:1.35rem;letter-spacing:-.03em;font-weight:600}
 @media(max-width:560px){.cat-grid{grid-template-columns:1fr}}
 
 /* ---------- PORTFÓLIO ---------- */
-.port{background:var(--ink);border-top:1px solid var(--line)}
-.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.port{border-top:1px solid var(--line)}
+.port-grid{display:grid;grid-template-columns:repeat(var(--cols-chapas),1fr);gap:16px;margin-top:28px}
 .port-item{position:relative;border:1px solid var(--line);border-radius:2px;overflow:hidden;transition:border-color .3s ease}
 .port-item:hover{border-color:var(--accent)}
 .port-item .cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:16px 16px 14px;
   background:linear-gradient(0deg,rgba(18,17,16,.9),transparent);font-size:13px;color:var(--paper);font-weight:500;letter-spacing:-.01em}
 .port-item.tall{grid-row:span 2}
 .port-note{margin-top:26px;font-size:12.5px;color:var(--muted);opacity:.75;text-align:center}
-@media(max-width:900px){.port-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1000px){.port-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.port-grid{grid-template-columns:1fr}}
 
 /* ---------- arquitetos ---------- */
-.arch{border-top:1px solid var(--line);background:var(--ink-2)}
+.arch{border-top:1px solid var(--line)}
 .arch-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .arch-body h2{margin:16px 0 20px}
 .arch-body ul{list-style:none;margin-top:26px}
@@ -310,7 +315,7 @@ section[id]{scroll-margin-top:86px}
 .brand-logo{height:44px;width:auto;display:block}
 footer .brand-logo{height:64px}
 @media(max-width:520px){.brand-logo{height:36px}}
-.faq{border-top:1px solid var(--line);background:var(--ink)}
+.faq{border-top:1px solid var(--line)}
 .faq-list{margin-top:38px;border-top:1px solid var(--line);max-width:840px}
 .faq-item{border-bottom:1px solid var(--line)}
 .faq-item summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:1.06rem;color:var(--paper);font-weight:500;letter-spacing:-.025em}
@@ -349,20 +354,61 @@ footer .brand-logo{height:64px}
 .lb-prev{left:18px}.lb-next{right:18px}
 .lb-close:hover,.lb-nav:hover{background:var(--accent);color:#1a1815}
 @media(max-width:600px){.lb-nav{width:42px;height:42px;font-size:22px}.lb-prev{left:8px}.lb-next{right:8px}}
-.cat-go-detail{background:none;border:0;font-family:var(--sans);font-size:13px;letter-spacing:.02em;color:var(--muted);cursor:pointer;padding:0;margin-top:8px;text-decoration:underline;text-underline-offset:3px}
-.cat-go-detail:hover{color:var(--accent)}
-.mm{position:fixed;inset:0;z-index:130;background:rgba(10,9,8,.93);display:none;align-items:center;justify-content:center;padding:24px}
-.mm.open{display:flex}
-.mm-box{background:var(--ink-2);border:1px solid var(--line-strong);max-width:640px;width:100%;max-height:86vh;overflow-y:auto;border-radius:4px;position:relative;padding:44px 40px}
-.mm-close{position:absolute;top:16px;right:18px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(245,243,238,.1);color:var(--paper);cursor:pointer;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .2s ease}
-.mm-close:hover{background:var(--accent);color:#1a1815}
-.mm-eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:8px}
-.mm-box h3{font-size:clamp(24px,3vw,32px);margin:0 0 18px}
-.mm-box h4{font-family:var(--sans);font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin:22px 0 8px}
-.mm-box h4:first-of-type{margin-top:0}
-.mm-box p{font-size:15px;line-height:1.7;color:var(--stone);margin:0}
-.mm-box ul{margin:0;padding-left:18px;color:var(--stone);font-size:15px;line-height:1.7}
-@media(max-width:600px){.mm-box{padding:32px 22px}}
+
+/* ================= TONS ALTERNADOS: claro (cinza medio) x escuro (preto medio) =================
+   Para voltar tudo escuro, basta trocar as classes tone-light das secoes por tone-dark. */
+.tone-dark{background:var(--ink-2)}
+.tone-light{
+  background:var(--gray);
+  --stone:#26231f;
+  --paper:#141311;
+  --muted:#4a453f;
+  --accent:#4f4b44;
+  --accent-2:#7a756c;
+  --accent-3:#8b867c;
+  --line:rgba(20,19,17,.16);
+  --line-strong:rgba(20,19,17,.3);
+  color:#26231f;
+}
+.tone-light .btn-primary{background:#171614;color:#f5f3ee}
+.tone-light .btn-primary:hover{background:#000;color:#fff}
+.tone-light .btn-ghost{border-color:rgba(20,19,17,.32);color:#26231f}
+.tone-light .btn-ghost:hover{border-color:#171614;color:#141311}
+.tone-light .ph .tag{background:rgba(18,17,16,.8);color:#f5f3ee}
+.tone-light .cat-card{background:rgba(245,243,238,.42)}
+.tone-light .cat-card:hover{border-color:#171614}
+.tone-light .quote{background:rgba(245,243,238,.42)}
+.tone-light .port-item{background:rgba(245,243,238,.42)}
+
+/* ================= PROJETOS DE PARCEIROS ================= */
+.pjt-list{margin-top:48px;display:grid;gap:34px}
+.pjt-card{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+  border:1px solid var(--line-strong);border-radius:3px;padding:22px;background:rgba(245,243,238,.34)}
+.tone-dark .pjt-card,.tone-light .pjt-card.alt{background:rgba(245,243,238,.42)}
+.pjt-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pjt-info .eyebrow{margin-bottom:14px}
+.pjt-info h3{font-size:1.6rem;margin-bottom:10px}
+.pjt-info p{color:var(--muted);font-size:15px;letter-spacing:-.01em}
+.pjt-specs{list-style:none;margin-top:20px;border-top:1px solid var(--line)}
+.pjt-specs li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;letter-spacing:-.01em}
+.pjt-specs li span{color:var(--muted);min-width:104px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding-top:2px}
+.pjt-note{margin-top:30px;font-size:12.5px;color:var(--muted);opacity:.85;text-align:center}
+@media(max-width:900px){.pjt-card{grid-template-columns:1fr;gap:24px}}
+@media(max-width:520px){.pjt-photos{grid-template-columns:1fr}}
+
+/* ================= FICHA TECNICA DENTRO DO CATALOGO DE CADA MATERIAL ================= */
+.msheet{display:none;margin-top:26px;border:1px solid var(--line-strong);border-radius:3px;padding:28px 30px;
+  background:rgba(245,243,238,.05)}
+.tone-light .msheet{background:rgba(245,243,238,.42)}
+.msheet.on{display:block}
+.msheet-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.msheet h3{font-size:1.5rem}
+.msheet-blocks{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 34px}
+.msheet-blocks h4{font-family:var(--sans);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;font-weight:700}
+.msheet-blocks p{font-size:14.5px;line-height:1.65;color:var(--muted);letter-spacing:-.01em}
+.msheet-empty{margin-top:26px;text-align:center;font-size:14px;color:var(--muted);border:1px dashed var(--line-strong);border-radius:3px;padding:34px 20px;display:none}
+.msheet-empty.on{display:block}
+@media(max-width:760px){.msheet-blocks{grid-template-columns:1fr}.msheet{padding:24px 20px}}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Store","name":"RP Distribuidora de Mármores e Granitos","alternateName":"RP Granitos","description":"Distribuidor de chapas de travertino, quartzito, mármore e granito para arquitetos e construtores em toda Minas Gerais.","image":"https://rpgranitos.com.br/og-travertino.jpg","@id":"https://rpgranitos.com.br/","url":"https://rpgranitos.com.br/","telephone":"+553141123460","priceRange":"$$","currenciesAccepted":"BRL","address":{"@type":"PostalAddress","streetAddress":"Rua Joaima, 110, Chácaras Cotia","addressLocality":"Contagem","addressRegion":"MG","postalCode":"32183-200","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-19.9320,"longitude":-44.0536},"areaServed":[{"@type":"City","name":"Belo Horizonte"},{"@type":"City","name":"Contagem"},{"@type":"AdministrativeArea","name":"Região Metropolitana de Belo Horizonte"},{"@type":"State","name":"Minas Gerais"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"16:00"}],"sameAs":["https://instagram.com/rpgranitos"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Chapas de rocha natural","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Travertino"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Quartzito"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Mármore"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Granito"}}]}}
@@ -426,32 +472,48 @@ footer .brand-logo{height:64px}
   </div>
 </div>
 
-<!-- ================= TRAVERTINO EDITORIAL ================= -->
-<section class="trav pad" id="travertino">
+<!-- ================= PROJETOS DE PARCEIROS =================
+     COMO ADICIONAR UM PROJETO NOVO: duplique um bloco <article class="pjt-card"> inteiro,
+     troque as duas fotos (assets/) e os textos. Alterne a classe "alt" para variar o fundo. -->
+<section class="pjt pad tone-light" id="projetos">
   <div class="wrap">
-    <div class="trav-grid">
-      <div class="trav-sticky">
-        <span class="eyebrow">O material do momento</span>
-        <h2 style="margin-top:16px">Por que o travertino está em todo projeto de alto padrão</h2>
-        <p class="kicker">Textura viva, tom quente e uma presença que fotografia de banco de imagem nenhuma reproduz.</p>
-      </div>
-      <div class="trav-body reveal">
-        <p>O travertino é uma pedra calcária formada ao longo de milênios por fontes de água mineral. Dessa origem vêm as <b>faixas naturais e os poros característicos</b> que dão à peça um desenho impossível de repetir. Nenhuma chapa é igual à outra, e é exatamente isso que o cliente de alto padrão procura.</p>
-        <p>Voltou a ser protagonista na arquitetura contemporânea por unir o que poucos materiais entregam ao mesmo tempo: <b>aparência atemporal, tom quente e leitura sofisticada</b> em fachadas, revestimentos e áreas nobres.</p>
-        <div class="proj-grid">
-          <!-- FOTOS: trocar pelas fotos reais de projetos executados com travertino da RP -->
-          <div class="ph ph-3x4"><img src="assets/travertino-projeto-1.jpg" alt="Banheiro contemporâneo revestido em travertino" loading="lazy"></div>
-          <div class="ph ph-3x4"><img src="assets/travertino-projeto-2.jpg" alt="Projeto de banheiro com paredes em travertino" loading="lazy"></div>
-        </div>
-      </div>
+    <div class="sec-head reveal">
+      <span class="eyebrow">Projetos de parceiros</span>
+      <h2>O material da RP dentro de obras reais</h2>
+      <p class="lead">Projetos executados por arquitetos, construtores e marmorarias parceiras com chapas fornecidas pela RP. Esta galeria é alimentada com novas obras conforme elas são registradas.</p>
     </div>
+
+    <div class="pjt-list">
+
+      <article class="pjt-card reveal">
+        <div class="pjt-photos">
+          <div class="ph ph-3x4"><img src="assets/travertino-projeto-1.jpg" alt="Banheiro contemporâneo revestido em travertino fornecido pela RP" loading="lazy"><span class="tag">Travertino</span></div>
+          <div class="ph ph-3x4"><img src="assets/travertino-projeto-2.jpg" alt="Detalhe das paredes em travertino no projeto" loading="lazy"></div>
+        </div>
+        <div class="pjt-info">
+          <span class="eyebrow">Obra entregue</span>
+          <h3>Residência Hugo</h3>
+          <p>Banheiro contemporâneo com paredes e bancada em travertino. O tom quente e a textura viva da rocha assumem o projeto inteiro, dispensando revestimento de apoio.</p>
+          <ul class="pjt-specs">
+            <li><span>Material</span> Travertino</li>
+            <li><span>Aplicação</span> Revestimento de parede e bancada</li>
+            <li><span>Fornecimento</span> Chapas RP Distribuidora</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- PRÓXIMO PROJETO: duplique o bloco acima aqui dentro -->
+
+    </div>
+
+    <p class="pjt-note">Executou um projeto com material da RP? Envie as fotos pelo WhatsApp e a obra entra nesta galeria.</p>
   </div>
 </section>
 
 <div class="strata divider"></div>
 
 <!-- ================= DIFERENCIAIS ================= -->
-<section class="edge pad" id="diferenciais">
+<section class="edge pad tone-dark" id="diferenciais">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Por que a RP</span>
@@ -468,45 +530,42 @@ footer .brand-logo{height:64px}
 </section>
 
 <!-- ================= CATÁLOGO (pastas) ================= -->
-<section class="cat pad" id="catalogo">
+<section class="cat pad tone-light" id="catalogo">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Linhas de material</span>
       <h2>Escolha o material e veja as chapas</h2>
-      <p class="lead">Clique em uma linha para abrir as chapas daquela pasta. Toque em qualquer chapa para ampliar.</p>
+      <p class="lead">Clique em uma linha para abrir as chapas daquela pasta junto com a ficha técnica do material. Toque em qualquer chapa para ampliar.</p>
     </div>
+    <!-- FOTOS DE DESTAQUE DAS LINHAS: trocar o data-img de cada card quando as novas fotos chegarem -->
     <div class="cat-grid">
       <a class="cat-card feat reveal" href="#estoque" data-filter="travertino" data-material="travertino">
         <div class="ph ph-3x4"><img data-img="travertino-romano" alt="Travertino Romano" loading="lazy" onerror="this.style.display='none'"><span class="tag">Destaque</span></div>
-        <div class="cat-meta"><h3>Travertino <span class="cat-count">1 chapa</span></h3><p>Rocha natural atemporal, reconhecida por seus tons claros e textura marcante. Versátil e elegante.</p><span class="cat-go">Ver chapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><button class="cat-go-detail" data-material="travertino" type="button">Ver ficha técnica</button></div>
+        <div class="cat-meta"><h3>Travertino <span class="cat-count">1 chapa</span></h3><p>Rocha natural atemporal, reconhecida por seus tons claros e textura marcante. Versátil e elegante.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="quartzito" data-material="quartzito">
         <div class="ph ph-3x4"><img data-img="quartzito-verde-avocatus" alt="Quartzito Verde Avocatus" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Quartzito <span class="cat-count">2 chapas</span></h3><p>Rochas de alto padrão que unem beleza exclusiva, resistência e versatilidade.</p><span class="cat-go">Ver chapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><button class="cat-go-detail" data-material="quartzito" type="button">Ver ficha técnica</button></div>
+        <div class="cat-meta"><h3>Quartzito <span class="cat-count">2 chapas</span></h3><p>Rochas de alto padrão que unem beleza exclusiva, resistência e versatilidade.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="marmore" data-material="marmore">
         <div class="ph ph-3x4"><img data-img="marmore-pinta-cinza" alt="Mármore Branco Pinta Cinza" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Mármore <span class="cat-count">2 chapas</span></h3><p>Dolomíticos (alto padrão) e calcíticos (clássicos): elegância natural e veios marcantes.</p><span class="cat-go">Ver chapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><button class="cat-go-detail" data-material="marmore" type="button">Ver ficha técnica</button></div>
+        <div class="cat-meta"><h3>Mármore <span class="cat-count">2 chapas</span></h3><p>Dolomíticos (alto padrão) e calcíticos (clássicos): elegância natural e veios marcantes.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="granito" data-material="granito">
         <div class="ph ph-3x4"><img data-img="granito-ocre-itabira" alt="Granito Ocre Itabira" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Granito <span class="cat-count">5 chapas</span></h3><p>Rochas resistentes e versáteis, para quem busca durabilidade e beleza atemporal.</p><span class="cat-go">Ver chapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><button class="cat-go-detail" data-material="granito" type="button">Ver ficha técnica</button></div>
-      </a>
-      <a class="cat-card reveal" href="#estoque" data-filter="industrializados" data-material="industrializados">
-        <div class="ph ph-3x4"><img data-img="industrializado" alt="Industrializado" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Industrializados <span class="cat-count">sob consulta</span></h3><p>Beleza, resistência e padronização, com ampla variedade de cores.</p><span class="cat-go">Ver chapas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><button class="cat-go-detail" data-material="industrializados" type="button">Ver ficha técnica</button></div>
+        <div class="cat-meta"><h3>Granito <span class="cat-count">5 chapas</span></h3><p>Rochas resistentes e versáteis, para quem busca durabilidade e beleza atemporal.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
     </div>
   </div>
 </section>
 
 <!-- ================= CHAPAS EM ESTOQUE (galeria por pasta) ================= -->
-<section class="port pad" id="estoque">
+<section class="port pad tone-dark" id="estoque">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Chapas em estoque</span>
       <h2>Rocha natural em chapa, pronta para a sua obra</h2>
-      <p class="lead">Distribuidor, não marmoraria: você vê a chapa, escolhe o material e recebe direto de quem tem volume. Clique em uma chapa para ampliar.</p>
+      <p class="lead">Distribuidor, não marmoraria: você vê a chapa, escolhe o material e recebe direto de quem tem volume. Selecione um material para ver a ficha técnica e as chapas disponíveis.</p>
     </div>
     <div class="filters reveal" id="filters">
       <button class="filter active" data-filter="todos">Todos <span>10</span></button>
@@ -515,6 +574,9 @@ footer .brand-logo{height:64px}
       <button class="filter" data-filter="marmore">Mármore <span>2</span></button>
       <button class="filter" data-filter="granito">Granito <span>5</span></button>
     </div>
+    <!-- FICHA TÉCNICA: aparece aqui dentro do catálogo, ao selecionar um material -->
+    <div class="msheet" id="mat-sheet" aria-live="polite"></div>
+    <div class="msheet-empty" id="gallery-empty">Chapas deste material sob consulta. Chame no WhatsApp que enviamos as opções disponíveis em estoque.</div>
     <div class="port-grid" id="gallery">
       <button class="port-item reveal" data-cat="travertino" data-data-img="travertino-romano" data-name="Travertino Romano"><div class="ph ph-3x2"><img data-img="travertino-romano" alt="Chapa de Travertino Romano" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Travertino Romano</span></button>
       <button class="port-item reveal" data-cat="quartzito" data-data-img="quartzito-verde-avocatus" data-name="Quartzito Verde Avocatus - escovado"><div class="ph ph-3x2"><img data-img="quartzito-verde-avocatus" alt="Chapa de Quartzito Verde Avocatus - escovado" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Quartzito Verde Avocatus - escovado</span></button>
@@ -532,7 +594,7 @@ footer .brand-logo{height:64px}
 </section>
 
 <!-- ================= ARQUITETOS E CONSTRUTORES ================= -->
-<section class="arch pad" id="profissionais">
+<section class="arch pad tone-light" id="profissionais">
   <div class="wrap">
     <div class="arch-grid">
       <div class="arch-visual reveal">
@@ -555,7 +617,7 @@ footer .brand-logo{height:64px}
 </section>
 
 <!-- ================= PROVA SOCIAL ================= -->
-<section class="proof pad" id="depoimentos">
+<section class="proof pad tone-dark" id="depoimentos">
   <div class="wrap">
     <div class="sec-head reveal" style="margin:0 auto;text-align:center">
       <span class="eyebrow" style="margin:0 auto">Quem já trabalha com a gente</span>
@@ -572,7 +634,7 @@ footer .brand-logo{height:64px}
 </section>
 
 <!-- ================= FAQ ================= -->
-<section class="faq pad" id="faq">
+<section class="faq pad tone-light" id="faq">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Perguntas frequentes</span>
@@ -589,7 +651,7 @@ footer .brand-logo{height:64px}
 </section>
 
 <!-- ================= CTA + FORM ================= -->
-<section class="cta pad" id="orcamento">
+<section class="cta pad tone-dark" id="orcamento">
   <div class="strata"></div>
   <div class="wrap">
     <div class="cta-grid">
@@ -651,7 +713,7 @@ footer .brand-logo{height:64px}
       </div>
       <div class="foot-col">
         <h4>Navegação</h4>
-        <a href="#travertino">Travertino</a>
+        <a href="#projetos">Projetos de parceiros</a>
         <a href="#diferenciais">Por que a RP</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#estoque">Chapas em estoque</a>
@@ -682,13 +744,6 @@ footer .brand-logo{height:64px}
   <div class="lb-cap" id="lb-cap"></div>
 </div>
 
-<!-- ================= FICHA TÉCNICA DO MATERIAL ================= -->
-<div class="mm" id="mat-modal" role="dialog" aria-modal="true" aria-label="Ficha técnica do material">
-  <div class="mm-box">
-    <button class="mm-close" id="mm-close" aria-label="Fechar">&times;</button>
-    <div id="mm-content"></div>
-  </div>
-</div>
 
 <a class="wa-float" data-wa href="#" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -700,7 +755,7 @@ var IMG={"equipe-rp": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA
 document.querySelectorAll("[data-img]").forEach(function(el){var k=el.getAttribute("data-img");if(IMG[k]){el.src=IMG[k];}});
 /* ---------- CONFIG ---------- */
 var WHATSAPP = "553141123460"; // (31) 4112-3460 informado por Malta como contato que recebe os leads.
-var WA_MSG = "Ola! Vim pela pagina da RP Granitos e quero um orcamento de travertino.";
+var WA_MSG = "Olá! Vim pela página da RP Granitos e gostaria de solicitar um orçamento.";
 var WEBHOOK = "https://script.google.com/macros/s/AKfycbyTqljmRBpY6lR_cO-91XawuvUJeRPJEEov39wVOAqSrnivYhoeVNnuP23J46e-n1N4/exec"; // Google Apps Script Web App (form)
 
 (function(){
@@ -752,12 +807,29 @@ document.getElementById("ano").textContent = new Date().getFullYear();
 
   function rebuildVisible(){ visible=items.filter(function(it){return it.style.display!=="none";}); }
 
+  var sheet=document.getElementById("mat-sheet");
+  var empty=document.getElementById("gallery-empty");
+
+  function renderSheet(cat){
+    var info = MAT_INFO[cat];
+    if(!info){ sheet.classList.remove("on"); sheet.innerHTML=""; return; }
+    var html = '<div class="msheet-head"><div><span class="eyebrow">Ficha t\u00e9cnica</span><h3 style="margin-top:12px">'+info.titulo+'</h3></div></div><div class="msheet-blocks">';
+    info.blocos.forEach(function(b){ html += "<div><h4>"+b.t+"</h4><p>"+b.p+"</p></div>"; });
+    html += "</div>";
+    sheet.innerHTML = html;
+    sheet.classList.add("on");
+  }
+
   function applyFilter(cat){
+    var n=0;
     items.forEach(function(it){
       var show = cat==="todos" || it.getAttribute("data-cat")===cat;
       it.style.display = show ? "" : "none";
+      if(show) n++;
     });
     filters.forEach(function(f){ f.classList.toggle("active", f.getAttribute("data-filter")===cat); });
+    renderSheet(cat);
+    empty.classList.toggle("on", n===0);
     rebuildVisible();
   }
   filters.forEach(function(f){ f.addEventListener("click",function(){ applyFilter(f.getAttribute("data-filter")); }); });
@@ -808,29 +880,6 @@ document.getElementById("ano").textContent = new Date().getFullYear();
       ]
     }
   };
-  var mm=document.getElementById("mat-modal");
-  var mmContent=document.getElementById("mm-content");
-  function openMaterial(key){
-    var info=MAT_INFO[key];
-    if(!info) return;
-    var html="<span class=\"mm-eyebrow\">Ficha técnica</span><h3>"+info.titulo+"</h3>";
-    info.blocos.forEach(function(b){ html+="<h4>"+b.t+"</h4><p>"+b.p+"</p>"; });
-    mmContent.innerHTML=html;
-    mm.classList.add("open");
-    document.body.style.overflow="hidden";
-  }
-  function closeMaterial(){ mm.classList.remove("open"); document.body.style.overflow=""; }
-  document.querySelectorAll(".cat-go-detail[data-material]").forEach(function(btn){
-    btn.addEventListener("click",function(e){
-      e.preventDefault();
-      e.stopPropagation();
-      openMaterial(btn.getAttribute("data-material"));
-    });
-  });
-  document.getElementById("mm-close").addEventListener("click", closeMaterial);
-  mm.addEventListener("click",function(e){ if(e.target===mm) closeMaterial(); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape" && mm.classList.contains("open")) closeMaterial(); });
-
   var lb=document.getElementById("lightbox");
   var lbImg=document.getElementById("lb-img");
   var lbCap=document.getElementById("lb-cap");
