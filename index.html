@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RP Granitos | Distribuidor de Travertino e Chapas de Rocha Natural em Minas Gerais</title>
 <meta name="description" content="Distribuidor de chapas de travertino, quartzito, mármore e granito para arquitetos e construtores. Pronta-entrega e atendimento consultivo em Contagem, Belo Horizonte e todo o interior de Minas Gerais.">
-<meta name="keywords" content="travertino, chapas de travertino, distribuidor de chapas, mármore, granito, quartzito, rochas ornamentais, Contagem, Belo Horizonte, RMBH, Minas Gerais, travertino romano">
+<meta name="keywords" content="travertino, chapas de travertino, distribuidor de chapas, mármore, granito, quartzito, rochas ornamentais, Contagem, Belo Horizonte, RMBH, Minas Gerais, travertino romano, serpentinito, quartzito mont blanc, calacata matarazzo">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="RP Distribuidora de Mármores e Granitos">
 <meta name="geo.region" content="BR-MG">
@@ -55,8 +55,8 @@
   --wrap:1180px;
   /* COLUNAS DAS FOTOS: troque de 4 para 2 se o cliente preferir duas colunas.
      --cols-linhas = cards das linhas de material | --cols-chapas = galeria de chapas */
-  --cols-linhas:4;
-  --cols-chapas:4;
+  --cols-linhas:3;
+  --cols-chapas:5;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -251,8 +251,10 @@ h3{font-size:1.35rem;letter-spacing:-.03em;font-weight:600}
   background:linear-gradient(0deg,rgba(18,17,16,.9),transparent);font-size:13px;color:var(--paper);font-weight:500;letter-spacing:-.01em}
 .port-item.tall{grid-row:span 2}
 .port-note{margin-top:26px;font-size:12.5px;color:var(--muted);opacity:.75;text-align:center}
-@media(max-width:1000px){.port-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.port-grid{grid-template-columns:1fr}}
+@media(max-width:1180px){.port-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:980px){.port-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.port-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:400px){.port-grid{grid-template-columns:1fr}}
 
 /* ---------- arquitetos ---------- */
 .arch{border-top:1px solid var(--line)}
@@ -353,6 +355,27 @@ footer .brand-logo{height:64px}
 /* item da galeria vira botão clicável */
 .port-item{appearance:none;font:inherit;color:inherit;text-align:left;padding:0;width:100%;display:block;background:var(--ink-2);cursor:zoom-in}
 
+/* botao Instagram interativo */
+.btn-ig{position:relative;overflow:hidden}
+.btn-ig .ig-handle{opacity:.62;margin-left:6px;font-size:.92em}
+.btn-ig svg{transition:transform .35s cubic-bezier(.2,.7,.3,1)}
+.btn-ig:hover svg{transform:rotate(-8deg) scale(1.12)}
+.btn-ig:active{transform:translateY(1px)}
+.contacts .c-link{color:inherit;text-decoration:none;border-bottom:1px solid var(--line-strong);transition:border-color .2s ease,opacity .2s ease}
+.contacts .c-link:hover{border-color:currentColor;opacity:.85}
+
+/* qualquer foto ampliavel */
+.ph.zoomable{cursor:zoom-in;position:relative}
+.ph.zoomable img{transition:transform .5s cubic-bezier(.2,.7,.3,1),opacity .3s ease}
+.ph.zoomable:hover img{transform:scale(1.04)}
+.ph.zoomable:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.ph.zoomable .zoom-hint{position:absolute;top:10px;right:10px;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;background:rgba(18,17,16,.62);color:#f5f3ee;
+  opacity:0;transform:scale(.85);transition:opacity .25s ease,transform .25s ease;pointer-events:none;backdrop-filter:blur(2px)}
+.ph.zoomable .zoom-hint svg{width:15px;height:15px}
+.ph.zoomable:hover .zoom-hint,.ph.zoomable:focus-visible .zoom-hint{opacity:1;transform:scale(1)}
+@media(hover:none){.ph.zoomable .zoom-hint{opacity:.9;transform:scale(1)}}
+
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:120;background:rgba(10,9,8,.93);display:none;align-items:center;justify-content:center;padding:24px}
 .lb.open{display:flex}
@@ -397,6 +420,7 @@ footer .brand-logo{height:64px}
   border:1px solid var(--line-strong);border-radius:3px;padding:22px;background:rgba(245,243,238,.34)}
 .tone-dark .pjt-card,.tone-light .pjt-card.alt{background:rgba(245,243,238,.42)}
 .pjt-photos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pjt-photos.grid-3{grid-template-columns:repeat(3,1fr)}
 .pjt-info .eyebrow{margin-bottom:14px}
 .pjt-info h3{font-size:1.6rem;margin-bottom:10px}
 .pjt-info p{color:var(--muted);font-size:15px;letter-spacing:-.01em}
@@ -404,8 +428,9 @@ footer .brand-logo{height:64px}
 .pjt-specs li{display:flex;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px;letter-spacing:-.01em}
 .pjt-specs li span{color:var(--muted);min-width:104px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding-top:2px}
 .pjt-note{margin-top:30px;font-size:12.5px;color:var(--muted);opacity:.85;text-align:center}
-@media(max-width:900px){.pjt-card{grid-template-columns:1fr;gap:24px}}
-@media(max-width:520px){.pjt-photos{grid-template-columns:1fr}}
+@media(max-width:900px){.pjt-card{grid-template-columns:1fr;gap:24px}.pjt-photos.grid-3{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.pjt-photos.grid-3{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.pjt-photos,.pjt-photos.grid-3{grid-template-columns:1fr}}
 
 /* ================= FICHA TECNICA DENTRO DO CATALOGO DE CADA MATERIAL ================= */
 .msheet{display:none;margin-top:26px;border:1px solid var(--line-strong);border-radius:3px;padding:28px 30px;
@@ -422,10 +447,10 @@ footer .brand-logo{height:64px}
 @media(max-width:760px){.msheet-blocks{grid-template-columns:1fr}.msheet{padding:24px 20px}}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"RP Distribuidora de Mármores e Granitos","alternateName":"RP Granitos","description":"Distribuidor de chapas de travertino, quartzito, mármore e granito para arquitetos e construtores em toda Minas Gerais.","image":"https://rpgranitos.com.br/og-travertino.jpg","@id":"https://rpgranitos.com.br/","url":"https://rpgranitos.com.br/","telephone":"+553141123460","priceRange":"$$","currenciesAccepted":"BRL","address":{"@type":"PostalAddress","streetAddress":"Rua Joaima, 110, Chácaras Cotia","addressLocality":"Contagem","addressRegion":"MG","postalCode":"32183-200","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-19.9320,"longitude":-44.0536},"areaServed":[{"@type":"City","name":"Belo Horizonte"},{"@type":"City","name":"Contagem"},{"@type":"AdministrativeArea","name":"Região Metropolitana de Belo Horizonte"},{"@type":"State","name":"Minas Gerais"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"16:00"}],"sameAs":["https://instagram.com/rpgranitos"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Chapas de rocha natural","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Travertino"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Quartzito"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Mármore"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Granito"}}]}}
+{"@context":"https://schema.org","@type":"Store","name":"RP Distribuidora de Mármores e Granitos","alternateName":"RP Granitos","description":"Distribuidor de chapas de travertino, quartzito, mármore e granito para arquitetos e construtores em toda Minas Gerais.","image":"https://rpgranitos.com.br/og-travertino.jpg","@id":"https://rpgranitos.com.br/","url":"https://rpgranitos.com.br/","telephone":"+553141123460","priceRange":"$$","currenciesAccepted":"BRL","address":{"@type":"PostalAddress","streetAddress":"Rua Joaima, 110, Chácaras Cotia","addressLocality":"Contagem","addressRegion":"MG","postalCode":"32183-200","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-19.9320,"longitude":-44.0536},"areaServed":[{"@type":"City","name":"Belo Horizonte"},{"@type":"City","name":"Contagem"},{"@type":"AdministrativeArea","name":"Região Metropolitana de Belo Horizonte"},{"@type":"State","name":"Minas Gerais"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"07:00","closes":"17:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:00","closes":"16:00"}],"sameAs":["https://instagram.com/rpgranitos"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Chapas de rocha natural","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Product","name":"Travertino"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Quartzito"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Mármore"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Granito"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Serpentinito"}},{"@type":"Offer","itemOffered":{"@type":"Product","name":"Industrializados"}}]}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A RP é uma marmoraria?","acceptedAnswer":{"@type":"Answer","text":"Não. A RP é distribuidora de chapas de rocha natural. Fornecemos travertino, quartzito, mármore e granito em chapa para marmorarias, arquitetos e construtores."}},{"@type":"Question","name":"A RP entrega em todo o estado de Minas Gerais?","acceptedAnswer":{"@type":"Answer","text":"Sim. Atendemos Contagem e toda a Região Metropolitana de Belo Horizonte e expandimos a entrega para o interior de Minas Gerais."}},{"@type":"Question","name":"Quais materiais a RP distribui?","acceptedAnswer":{"@type":"Answer","text":"Chapas de travertino, quartzito, mármore, granito e industrializados, com opções de diferentes acabamentos para cada material."}},{"@type":"Question","name":"O travertino pode ser usado em área externa e piscina?","acceptedAnswer":{"@type":"Answer","text":"Sim. Com o acabamento adequado e a impermeabilização correta, o travertino é indicado para fachadas, áreas de piscina e spa. A equipe orienta a especificação por ambiente."}},{"@type":"Question","name":"A RP atende arquitetos e construtores?","acceptedAnswer":{"@type":"Answer","text":"Sim. Oferecemos amostras, orientação técnica de acabamento e confirmação de prazo e disponibilidade antes do fechamento."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"A RP é uma marmoraria?","acceptedAnswer":{"@type":"Answer","text":"Não. A RP é distribuidora de chapas de rocha natural. Fornecemos travertino, quartzito, mármore e granito em chapa para marmorarias, arquitetos e construtores."}},{"@type":"Question","name":"A RP entrega em todo o estado de Minas Gerais?","acceptedAnswer":{"@type":"Answer","text":"Sim. Atendemos Contagem e toda a Região Metropolitana de Belo Horizonte e expandimos a entrega para o interior de Minas Gerais."}},{"@type":"Question","name":"Quais materiais a RP distribui?","acceptedAnswer":{"@type":"Answer","text":"Chapas de travertino, quartzito, mármore, granito, serpentinito e industrializados, com opções de diferentes acabamentos para cada material."}},{"@type":"Question","name":"O travertino pode ser usado em área externa e piscina?","acceptedAnswer":{"@type":"Answer","text":"Sim. Com o acabamento adequado e a impermeabilização correta, o travertino é indicado para fachadas, áreas de piscina e spa. A equipe orienta a especificação por ambiente."}},{"@type":"Question","name":"A RP atende arquitetos e construtores?","acceptedAnswer":{"@type":"Answer","text":"Sim. Oferecemos amostras, orientação técnica de acabamento e confirmação de prazo e disponibilidade antes do fechamento."}}]}
 </script>
 </head>
 <body>
@@ -461,7 +486,7 @@ footer .brand-logo{height:64px}
     <div class="hero-copy">
       <span class="eyebrow">Distribuidor de chapas · Travertino · Minas Gerais</span>
       <h1>Material especificado.<br><em>Material entregue.</em></h1>
-      <p class="lead">Somos distribuidores de <b>rochas ornamentais</b> de alto padrão, oferecendo travertinos, quartzitos, industrializados, mármores e granitos para os mais diversos projetos. Trabalhamos com materiais selecionados, qualidade garantida e opções à pronta entrega, proporcionando agilidade e confiança para nossos clientes. Nosso compromisso é fornecer rochas que unem beleza, durabilidade e excelência, atendendo clientes em toda Minas Gerais.</p>
+      <p class="lead">Somos distribuidores de <b>rochas ornamentais</b> de alto padrão, oferecendo travertinos, quartzitos, mármores, granitos, serpentinitos e industrializados para os mais diversos projetos. Trabalhamos com materiais selecionados, qualidade garantida e opções à pronta entrega, proporcionando agilidade e confiança para nossos clientes. Nosso compromisso é fornecer rochas que unem beleza, durabilidade e excelência, atendendo clientes em toda Minas Gerais.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" data-wa href="#orcamento">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -489,7 +514,7 @@ footer .brand-logo{height:64px}
   <div class="wrap">
     <div class="trust-item reveal"><div class="n">11</div><div class="l">anos distribuindo rochas ornamentais em Minas</div></div>
     <div class="trust-item reveal"><div class="n">RMBH<span style="font-size:1.3rem"> + MG</span></div><div class="l">distribuímos para a Região Metropolitana de Belo Horizonte e para todas as regiões de Minas Gerais</div></div>
-    <div class="trust-item reveal"><div class="n">Chapas</div><div class="l">travertino, quartzito, mármore, granito e industrializados em estoque</div></div>
+    <div class="trust-item reveal"><div class="n">Chapas</div><div class="l">travertino, quartzito, mármore, granito, serpentinito e industrializados em estoque</div></div>
   </div>
 </div>
 
@@ -506,19 +531,8 @@ footer .brand-logo{height:64px}
 
     <div class="pjt-list">
 
-      <article class="pjt-card reveal">
-        <div class="pjt-photos">
-          <div class="ph ph-3x4"><img src="assets/travertino-projeto-1.jpg" alt="Ambiente revestido em travertino fornecido pela RP" loading="lazy"><span class="tag">Bancada em Travertino Romano</span></div>
-          <div class="ph ph-3x4"><img src="assets/travertino-projeto-2.jpg" alt="Detalhe das paredes em travertino no projeto" loading="lazy"></div>
-        </div>
-        <div class="pjt-info">
-          <span class="eyebrow">Foto Ambiente</span>
-          <p>Banheiro contemporâneo com paredes e bancada em travertino. O tom quente e a textura viva da rocha assumem o projeto inteiro, dispensando revestimento de apoio.</p>
-        </div>
-      </article>
-
       <article class="pjt-card alt reveal">
-        <div class="pjt-photos">
+        <div class="pjt-photos grid-3">
           <div class="ph ph-3x4"><img data-img="obra-bancada-kouros" alt="Bancada em Kouros escovado" loading="lazy"><span class="tag">Bancada · Kouros escovado</span></div>
           <div class="ph ph-3x4"><img data-img="obra-bancada-montblanc" alt="Bancada em Mont Blanc escovado" loading="lazy"><span class="tag">Bancada · Mont Blanc escovado</span></div>
           <div class="ph ph-3x4"><img data-img="obra-pia-montblanc" alt="Pia em Mont Blanc escovado" loading="lazy"><span class="tag">Pia · Mont Blanc escovado</span></div>
@@ -570,20 +584,28 @@ footer .brand-logo{height:64px}
     <!-- FOTOS DE DESTAQUE DAS LINHAS: trocar o data-img de cada card quando as novas fotos chegarem -->
     <div class="cat-grid">
       <a class="cat-card feat reveal" href="#estoque" data-filter="travertino" data-material="travertino">
-        <div class="ph ph-3x4"><img data-img="travertino-romano" alt="Travertino Romano" loading="lazy" onerror="this.style.display='none'"><span class="tag">Destaque</span></div>
-        <div class="cat-meta"><h3>Travertino <span class="cat-count">1 chapa</span></h3><p>Rocha natural atemporal, reconhecida por seus tons claros e textura marcante. Versátil e elegante.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="ph ph-3x4"><img data-img="travertino-bruto-romano" alt="Travertino Bruto Romano" loading="lazy" onerror="this.style.display='none'"><span class="tag">Destaque</span></div>
+        <div class="cat-meta"><h3>Travertino <span class="cat-count">2 materiais</span></h3><p>Rocha natural atemporal, reconhecida por seus tons claros e textura marcante. Versátil e elegante.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="quartzito" data-material="quartzito">
-        <div class="ph ph-3x4"><img data-img="quartzito-verde-avocatus" alt="Quartzito Verde Avocatus" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Quartzito <span class="cat-count">2 chapas</span></h3><p>Rochas de alto padrão que unem beleza exclusiva, resistência e versatilidade.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="ph ph-3x4"><img data-img="quartzito-maestro-green" alt="Quartzito Maestro Green" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="cat-meta"><h3>Quartzito <span class="cat-count">6 materiais</span></h3><p>Rochas de alto padrão que unem beleza exclusiva, resistência e versatilidade.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="marmore" data-material="marmore">
-        <div class="ph ph-3x4"><img data-img="marmore-pinta-cinza" alt="Mármore Branco Pinta Cinza" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Mármore <span class="cat-count">2 chapas</span></h3><p>Dolomíticos (alto padrão) e calcíticos (clássicos): elegância natural e veios marcantes.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="ph ph-3x4"><img data-img="marmore-dolomitico-branco-parana" alt="Mármore Dolomítico Branco Paraná" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="cat-meta"><h3>Mármore <span class="cat-count">4 materiais</span></h3><p>Dolomíticos (alto padrão) e calcíticos (clássicos): elegância natural e veios marcantes.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
       <a class="cat-card reveal" href="#estoque" data-filter="granito" data-material="granito">
-        <div class="ph ph-3x4"><img data-img="granito-ocre-itabira" alt="Granito Ocre Itabira" loading="lazy" onerror="this.style.display='none'"></div>
-        <div class="cat-meta"><h3>Granito <span class="cat-count">5 chapas</span></h3><p>Rochas resistentes e versáteis, para quem busca durabilidade e beleza atemporal.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+        <div class="ph ph-3x4"><img data-img="granito-escovado-verde-avocatus" alt="Granito Escovado Verde Avocatus" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="cat-meta"><h3>Granito <span class="cat-count">20 materiais</span></h3><p>Rochas resistentes e versáteis, para quem busca durabilidade e beleza atemporal.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="cat-card reveal" href="#estoque" data-filter="serpentinito" data-material="serpentinito">
+        <div class="ph ph-3x4"><img data-img="serpentinito-verde-guatemala" alt="Serpentinito Verde Guatemala" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="cat-meta"><h3>Serpentinito <span class="cat-count">1 material</span></h3><p>Verde profundo com veios claros: rocha de forte presença para projetos de destaque.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </a>
+      <a class="cat-card reveal" href="#estoque" data-filter="industrializados" data-material="industrializados">
+        <div class="ph ph-3x4"><img data-img="industrializado-branco-pirme" alt="Industrializado Branco Pirme" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="cat-meta"><h3>Industrializados <span class="cat-count">1 material</span></h3><p>Padrão uniforme entre chapas, com ampla variedade de cores e texturas.</p><span class="cat-go">Ver chapas e ficha técnica <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
       </a>
     </div>
   </div>
@@ -598,26 +620,54 @@ footer .brand-logo{height:64px}
       <p class="lead">Selecione um material para ver a ficha técnica e as chapas disponíveis.</p>
     </div>
     <div class="filters reveal" id="filters">
-      <button class="filter active" data-filter="todos">Todos <span>10</span></button>
-      <button class="filter" data-filter="travertino">Travertino <span>1</span></button>
-      <button class="filter" data-filter="quartzito">Quartzito <span>2</span></button>
-      <button class="filter" data-filter="marmore">Mármore <span>2</span></button>
-      <button class="filter" data-filter="granito">Granito <span>5</span></button>
+      <button class="filter active" data-filter="todos">Todos <span>36</span></button>
+      <button class="filter" data-filter="travertino">Travertino <span>4</span></button>
+      <button class="filter" data-filter="quartzito">Quartzito <span>6</span></button>
+      <button class="filter" data-filter="marmore">Mármore <span>4</span></button>
+      <button class="filter" data-filter="granito">Granito <span>20</span></button>
+      <button class="filter" data-filter="serpentinito">Serpentinito <span>1</span></button>
+      <button class="filter" data-filter="industrializados">Industrializados <span>1</span></button>
     </div>
     <!-- FICHA TÉCNICA: aparece aqui dentro do catálogo, ao selecionar um material -->
     <div class="msheet" id="mat-sheet" aria-live="polite"></div>
     <div class="msheet-empty" id="gallery-empty">Chapas deste material sob consulta. Chame no WhatsApp que enviamos as opções disponíveis em estoque.</div>
     <div class="port-grid" id="gallery">
-      <button class="port-item reveal" data-cat="travertino" data-data-img="travertino-romano" data-name="Travertino Romano"><div class="ph ph-3x2"><img data-img="travertino-romano" alt="Chapa de Travertino Romano" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Travertino Romano</span></button>
-      <button class="port-item reveal" data-cat="quartzito" data-data-img="quartzito-verde-avocatus" data-name="Quartzito Verde Avocatus - escovado"><div class="ph ph-3x2"><img data-img="quartzito-verde-avocatus" alt="Chapa de Quartzito Verde Avocatus - escovado" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Quartzito Verde Avocatus - escovado</span></button>
-      <button class="port-item reveal" data-cat="quartzito" data-data-img="quartzito-verde-avocatus-2" data-name="Quartzito Verde Avocatus (Detalhe)"><div class="ph ph-3x2"><img data-img="quartzito-verde-avocatus-2" alt="Chapa de Quartzito Verde Avocatus (Detalhe)" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Quartzito Verde Avocatus (Detalhe)</span></button>
-      <button class="port-item reveal" data-cat="marmore" data-data-img="marmore-pinta-cinza" data-name="Mármore Branco Pinta Cinza"><div class="ph ph-3x2"><img data-img="marmore-pinta-cinza" alt="Chapa de Mármore Branco Pinta Cinza" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Mármore Branco Pinta Cinza</span></button>
-      <button class="port-item reveal" data-cat="marmore" data-data-img="marmore-pinta-cinza-2" data-name="Mármore Branco Pinta Cinza (Detalhe)"><div class="ph ph-3x2"><img data-img="marmore-pinta-cinza-2" alt="Chapa de Mármore Branco Pinta Cinza (Detalhe)" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Mármore Branco Pinta Cinza (Detalhe)</span></button>
-      <button class="port-item reveal" data-cat="granito" data-data-img="granito-branco-dallas" data-name="Granito Branco Dallas"><div class="ph ph-3x2"><img data-img="granito-branco-dallas" alt="Chapa de Granito Branco Dallas" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Dallas</span></button>
-      <button class="port-item reveal" data-cat="granito" data-data-img="granito-branco-dallas-2" data-name="Granito Branco Dallas (Detalhe)"><div class="ph ph-3x2"><img data-img="granito-branco-dallas-2" alt="Chapa de Granito Branco Dallas (Detalhe)" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Dallas (Detalhe)</span></button>
-      <button class="port-item reveal" data-cat="granito" data-data-img="granito-branco-itaunas" data-name="Granito Branco Itaúnas"><div class="ph ph-3x2"><img data-img="granito-branco-itaunas" alt="Chapa de Granito Branco Itaúnas" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Itaúnas</span></button>
-      <button class="port-item reveal" data-cat="granito" data-data-img="granito-cafe-imperial" data-name="Granito Café Imperial"><div class="ph ph-3x2"><img data-img="granito-cafe-imperial" alt="Chapa de Granito Café Imperial" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Granito Café Imperial</span></button>
-      <button class="port-item reveal" data-cat="granito" data-data-img="granito-ocre-itabira" data-name="Granito Ocre Itabira"><div class="ph ph-3x2"><img data-img="granito-ocre-itabira" alt="Chapa de Granito Ocre Itabira" loading="lazy" onerror="this.style.display='none'"></div><span class="cap">Granito Ocre Itabira</span></button>
+      <button class="port-item reveal" data-cat="travertino" data-name="Travertino Bruto Romano"><div class="ph ph-4x5"><img data-img="travertino-bruto-romano" alt="Chapa de Travertino Bruto Romano" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Travertino Bruto Romano</span></button>
+      <button class="port-item reveal" data-cat="travertino" data-name="Travertino Bruto Romano (Detalhe 2)"><div class="ph ph-4x5"><img data-img="travertino-bruto-romano-3" alt="Chapa de Travertino Bruto Romano (Detalhe 2)" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Travertino Bruto Romano (Detalhe 2)</span></button>
+      <button class="port-item reveal" data-cat="travertino" data-name="Travertino Bruto Romano (Detalhe)"><div class="ph ph-4x5"><img data-img="travertino-bruto-romano-2" alt="Chapa de Travertino Bruto Romano (Detalhe)" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Travertino Bruto Romano (Detalhe)</span></button>
+      <button class="port-item reveal" data-cat="travertino" data-name="Travertino Clássico Bege Bahia"><div class="ph ph-4x5"><img data-img="travertino-classico-bege-bahia" alt="Chapa de Travertino Clássico Bege Bahia" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Travertino Clássico Bege Bahia</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Maestro Green"><div class="ph ph-4x5"><img data-img="quartzito-maestro-green" alt="Chapa de Quartzito Maestro Green" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Maestro Green</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Avalon"><div class="ph ph-4x5"><img data-img="quartzito-avalon" alt="Chapa de Quartzito Avalon" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Avalon</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Kalahari"><div class="ph ph-4x5"><img data-img="quartzito-kalahari" alt="Chapa de Quartzito Kalahari" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Kalahari</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Mont Blanc"><div class="ph ph-4x5"><img data-img="quartzito-mont-blanc" alt="Chapa de Quartzito Mont Blanc" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Mont Blanc</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Perla Venata"><div class="ph ph-4x5"><img data-img="quartzito-perla-venata" alt="Chapa de Quartzito Perla Venata" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Perla Venata</span></button>
+      <button class="port-item reveal" data-cat="quartzito" data-name="Quartzito Verde Persian"><div class="ph ph-4x5"><img data-img="quartzito-verde-persian" alt="Chapa de Quartzito Verde Persian" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Quartzito Verde Persian</span></button>
+      <button class="port-item reveal" data-cat="marmore" data-name="Mármore Dolomítico Branco Paraná"><div class="ph ph-4x5"><img data-img="marmore-dolomitico-branco-parana" alt="Chapa de Mármore Dolomítico Branco Paraná" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Mármore Dolomítico Branco Paraná</span></button>
+      <button class="port-item reveal" data-cat="marmore" data-name="Mármore Dolomítico Calacata Matarazzo"><div class="ph ph-4x5"><img data-img="marmore-dolomitico-calacata-matarazzo" alt="Chapa de Mármore Dolomítico Calacata Matarazzo" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Mármore Dolomítico Calacata Matarazzo</span></button>
+      <button class="port-item reveal" data-cat="marmore" data-name="Mármore Dolomítico Cinza Donatello"><div class="ph ph-4x5"><img data-img="marmore-dolomitico-cinza-donatello" alt="Chapa de Mármore Dolomítico Cinza Donatello" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Mármore Dolomítico Cinza Donatello</span></button>
+      <button class="port-item reveal" data-cat="marmore" data-name="Mármore Nero Marquina"><div class="ph ph-4x5"><img data-img="marmore-nero-marquina" alt="Chapa de Mármore Nero Marquina" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Mármore Nero Marquina</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Escovado Verde Avocatus"><div class="ph ph-4x5"><img data-img="granito-escovado-verde-avocatus" alt="Chapa de Granito Escovado Verde Avocatus" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Escovado Verde Avocatus</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Amarelo Capri"><div class="ph ph-4x5"><img data-img="granito-amarelo-capri" alt="Chapa de Granito Amarelo Capri" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Amarelo Capri</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Amarelo Maracujá"><div class="ph ph-4x5"><img data-img="granito-amarelo-maracuja" alt="Chapa de Granito Amarelo Maracujá" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Amarelo Maracujá</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Amarelo Ornamental"><div class="ph ph-4x5"><img data-img="granito-amarelo-ornamental" alt="Chapa de Granito Amarelo Ornamental" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Amarelo Ornamental</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Alaska"><div class="ph ph-4x5"><img data-img="granito-branco-alaska" alt="Chapa de Granito Branco Alaska" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Alaska</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Dallas"><div class="ph ph-4x5"><img data-img="granito-branco-dallas" alt="Chapa de Granito Branco Dallas" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Dallas</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Itaúnas"><div class="ph ph-4x5"><img data-img="granito-branco-itaunas" alt="Chapa de Granito Branco Itaúnas" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Itaúnas</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Nepal"><div class="ph ph-4x5"><img data-img="granito-branco-nepal" alt="Chapa de Granito Branco Nepal" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Nepal</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Pitaya"><div class="ph ph-4x5"><img data-img="granito-branco-pitaya" alt="Chapa de Granito Branco Pitaya" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Pitaya</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Branco Siena"><div class="ph ph-4x5"><img data-img="granito-branco-siena" alt="Chapa de Granito Branco Siena" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Branco Siena</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Café Imperial"><div class="ph ph-4x5"><img data-img="granito-cafe-imperial" alt="Chapa de Granito Café Imperial" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Café Imperial</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Cinza Castelo"><div class="ph ph-4x5"><img data-img="granito-cinza-castelo" alt="Chapa de Granito Cinza Castelo" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Cinza Castelo</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Cinza Corumbá"><div class="ph ph-4x5"><img data-img="granito-cinza-corumba" alt="Chapa de Granito Cinza Corumbá" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Cinza Corumbá</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Florença"><div class="ph ph-4x5"><img data-img="granito-florenca" alt="Chapa de Granito Florença" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Florença</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Preto Indiano"><div class="ph ph-4x5"><img data-img="granito-preto-indiano" alt="Chapa de Granito Preto Indiano" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Preto Indiano</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Preto São Gabriel"><div class="ph ph-4x5"><img data-img="granito-preto-sao-gabriel" alt="Chapa de Granito Preto São Gabriel" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Preto São Gabriel</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Preto Via Láctea"><div class="ph ph-4x5"><img data-img="granito-preto-via-lactea" alt="Chapa de Granito Preto Via Láctea" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Preto Via Láctea</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Samoa"><div class="ph ph-4x5"><img data-img="granito-samoa" alt="Chapa de Granito Samoa" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Samoa</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Verde Ubatuba"><div class="ph ph-4x5"><img data-img="granito-verde-ubatuba" alt="Chapa de Granito Verde Ubatuba" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Verde Ubatuba</span></button>
+      <button class="port-item reveal" data-cat="granito" data-name="Granito Vermelho Brasília"><div class="ph ph-4x5"><img data-img="granito-vermelho-brasilia" alt="Chapa de Granito Vermelho Brasília" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Granito Vermelho Brasília</span></button>
+      <button class="port-item reveal" data-cat="serpentinito" data-name="Serpentinito Verde Guatemala"><div class="ph ph-4x5"><img data-img="serpentinito-verde-guatemala" alt="Chapa de Serpentinito Verde Guatemala" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Serpentinito Verde Guatemala</span></button>
+      <button class="port-item reveal" data-cat="industrializados" data-name="Industrializado Branco Pirme"><div class="ph ph-4x5"><img data-img="industrializado-branco-pirme" alt="Chapa de Industrializado Branco Pirme" loading="lazy" width="900" height="1125" onerror="this.style.display='none'"></div><span class="cap">Industrializado Branco Pirme</span></button>
     </div>
     <p class="port-note">Estoque completo e disponibilidade sob consulta pelo WhatsApp.</p>
   </div>
@@ -628,7 +678,7 @@ footer .brand-logo{height:64px}
   <div class="wrap">
     <div class="arch-grid">
       <div class="arch-visual reveal">
-        <div class="ph ph-1x1"><img data-img="quartzito-verde-avocatus" alt="Verde Avocatus" loading="lazy" onerror="this.style.display='none'"><span class="tag">Verde Avocatus</span></div>
+        <div class="ph ph-1x1"><img data-img="granito-escovado-verde-avocatus" alt="Granito Escovado Verde Avocatus" loading="lazy" onerror="this.style.display='none'"><span class="tag">Verde Avocatus escovado</span></div>
       </div>
       <div class="arch-body reveal">
         <span class="eyebrow">Para quem projeta e para quem constrói</span>
@@ -673,7 +723,7 @@ footer .brand-logo{height:64px}
     <div class="faq-list reveal">
       <details class="faq-item"><summary>A RP é uma marmoraria?</summary><p>Não. A RP é distribuidora de chapas de rocha natural. Fornecemos travertino, quartzito, mármore e granito em chapa para marmorarias, arquitetos e construtores.</p></details>
       <details class="faq-item"><summary>A RP entrega em todo o estado de Minas Gerais?</summary><p>Sim. Atendemos Contagem e toda a Região Metropolitana de Belo Horizonte e expandimos a entrega para o interior de Minas Gerais.</p></details>
-      <details class="faq-item"><summary>Quais materiais a RP distribui?</summary><p>Chapas de travertino, quartzito, mármore, granito e industrializados, com opções de diferentes acabamentos para cada material.</p></details>
+      <details class="faq-item"><summary>Quais materiais a RP distribui?</summary><p>Chapas de travertino, quartzito, mármore, granito, serpentinito e industrializados, com opções de diferentes acabamentos para cada material.</p></details>
       <details class="faq-item"><summary>O travertino pode ser usado em área externa e piscina?</summary><p>Sim. Com o acabamento adequado e a impermeabilização correta, o travertino é indicado para fachadas, áreas de piscina e spa. A equipe orienta a especificação por ambiente.</p></details>
       <details class="faq-item"><summary>A RP atende arquitetos e construtores?</summary><p>Sim. Oferecemos amostras, orientação técnica de acabamento e confirmação de prazo e disponibilidade antes do fechamento.</p></details>
     </div>
@@ -693,15 +743,15 @@ footer .brand-logo{height:64px}
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           Prefiro chamar no WhatsApp
         </a>
-        <a class="btn btn-ghost" href="https://instagram.com/rpgranitos" target="_blank" rel="noopener" style="margin-bottom:20px">
+        <a class="btn btn-ghost btn-ig" id="btn-instagram" href="https://instagram.com/rpgranitos" target="_blank" rel="noopener" data-ig="rpgranitos" style="margin-bottom:20px">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.98-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.198-4.354-2.618-6.78-6.98-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          Ver obras no Instagram
+          Ver obras no Instagram <span class="ig-handle">@rpgranitos</span>
         </a>
         <div class="contacts">
           <div><b>WhatsApp</b> (31) 4112-3460</div>
           <div><b>Endereço</b> Rua Joaima, 110, Chácaras Cotia, Contagem/MG</div>
           <div><b>Atendimento</b> Seg a qui, 7h às 17h · Sex, 7h às 16h</div>
-          <div><b>Instagram</b> @rpgranitos</div>
+          <div><b>Instagram</b> <a href="https://instagram.com/rpgranitos" target="_blank" rel="noopener" class="c-link">@rpgranitos</a></div>
         </div>
       </div>
 
@@ -785,8 +835,55 @@ footer .brand-logo{height:64px}
 
 <script>
 /* imagens embutidas (base64) */
-var IMG={"obra-bancada-kouros": "assets/img/obra-bancada-kouros.jpg", "obra-bancada-montblanc": "assets/img/obra-bancada-montblanc.jpg", "obra-lavabo-begebahia": "assets/img/obra-lavabo-begebahia.jpg", "obra-lavabo-valentino": "assets/img/obra-lavabo-valentino.jpg", "obra-lavanderia-pretosaogabriel": "assets/img/obra-lavanderia-pretosaogabriel.jpg", "obra-pia-montblanc": "assets/img/obra-pia-montblanc.jpg", "equipe-rp": "assets/img/equipe-rp.jpg", "granito-branco-dallas-2": "assets/img/granito-branco-dallas-2.jpg", "granito-branco-dallas": "assets/img/granito-branco-dallas.jpg", "granito-branco-itaunas": "assets/img/granito-branco-itaunas.jpg", "granito-cafe-imperial": "assets/img/granito-cafe-imperial.jpg", "granito-ocre-itabira": "assets/img/granito-ocre-itabira.jpg", "marmore-pinta-cinza-2": "assets/img/marmore-pinta-cinza-2.jpg", "marmore-pinta-cinza": "assets/img/marmore-pinta-cinza.jpg", "quartzito-verde-avocatus-2": "assets/img/quartzito-verde-avocatus-2.jpg", "quartzito-verde-avocatus": "assets/img/quartzito-verde-avocatus.jpg", "travertino-romano": "assets/img/travertino-romano.jpg"};
+var IMG={"equipe-rp": "assets/img/equipe-rp.jpg", "granito-amarelo-capri": "assets/img/granito-amarelo-capri.jpg", "granito-amarelo-maracuja": "assets/img/granito-amarelo-maracuja.jpg", "granito-amarelo-ornamental": "assets/img/granito-amarelo-ornamental.jpg", "granito-branco-alaska": "assets/img/granito-branco-alaska.jpg", "granito-branco-dallas": "assets/img/granito-branco-dallas.jpg", "granito-branco-itaunas": "assets/img/granito-branco-itaunas.jpg", "granito-branco-nepal": "assets/img/granito-branco-nepal.jpg", "granito-branco-pitaya": "assets/img/granito-branco-pitaya.jpg", "granito-branco-siena": "assets/img/granito-branco-siena.jpg", "granito-cafe-imperial": "assets/img/granito-cafe-imperial.jpg", "granito-cinza-castelo": "assets/img/granito-cinza-castelo.jpg", "granito-cinza-corumba": "assets/img/granito-cinza-corumba.jpg", "granito-escovado-verde-avocatus": "assets/img/granito-escovado-verde-avocatus.jpg", "granito-florenca": "assets/img/granito-florenca.jpg", "granito-preto-indiano": "assets/img/granito-preto-indiano.jpg", "granito-preto-sao-gabriel": "assets/img/granito-preto-sao-gabriel.jpg", "granito-preto-via-lactea": "assets/img/granito-preto-via-lactea.jpg", "granito-samoa": "assets/img/granito-samoa.jpg", "granito-verde-ubatuba": "assets/img/granito-verde-ubatuba.jpg", "granito-vermelho-brasilia": "assets/img/granito-vermelho-brasilia.jpg", "industrializado-branco-pirme": "assets/img/industrializado-branco-pirme.jpg", "marmore-dolomitico-branco-parana": "assets/img/marmore-dolomitico-branco-parana.jpg", "marmore-dolomitico-calacata-matarazzo": "assets/img/marmore-dolomitico-calacata-matarazzo.jpg", "marmore-dolomitico-cinza-donatello": "assets/img/marmore-dolomitico-cinza-donatello.jpg", "marmore-nero-marquina": "assets/img/marmore-nero-marquina.jpg", "obra-bancada-kouros": "assets/img/obra-bancada-kouros.jpg", "obra-bancada-montblanc": "assets/img/obra-bancada-montblanc.jpg", "obra-lavabo-begebahia": "assets/img/obra-lavabo-begebahia.jpg", "obra-lavabo-valentino": "assets/img/obra-lavabo-valentino.jpg", "obra-lavanderia-pretosaogabriel": "assets/img/obra-lavanderia-pretosaogabriel.jpg", "obra-pia-montblanc": "assets/img/obra-pia-montblanc.jpg", "quartzito-avalon": "assets/img/quartzito-avalon.jpg", "quartzito-kalahari": "assets/img/quartzito-kalahari.jpg", "quartzito-maestro-green": "assets/img/quartzito-maestro-green.jpg", "quartzito-mont-blanc": "assets/img/quartzito-mont-blanc.jpg", "quartzito-perla-venata": "assets/img/quartzito-perla-venata.jpg", "quartzito-verde-persian": "assets/img/quartzito-verde-persian.jpg", "serpentinito-verde-guatemala": "assets/img/serpentinito-verde-guatemala.jpg", "travertino-bruto-romano": "assets/img/travertino-bruto-romano.jpg", "travertino-bruto-romano-2": "assets/img/travertino-bruto-romano-2.jpg", "travertino-bruto-romano-3": "assets/img/travertino-bruto-romano-3.jpg", "travertino-classico-bege-bahia": "assets/img/travertino-classico-bege-bahia.jpg"};
 document.querySelectorAll("[data-img]").forEach(function(el){var k=el.getAttribute("data-img");if(IMG[k]){el.src=IMG[k];}});
+
+/* ---------- lightbox compartilhado (galeria, projetos e demais fotos) ---------- */
+var LB=(function(){
+  var lb=document.getElementById("lightbox");
+  if(!lb) return {open:function(){}};
+  var lbImg=document.getElementById("lb-img");
+  var lbCap=document.getElementById("lb-cap");
+  var btnPrev=document.getElementById("lb-prev");
+  var btnNext=document.getElementById("lb-next");
+  var list=[], idx=0;
+
+  function show(){
+    var it=list[idx]; if(!it) return;
+    lbImg.src=it.src; lbImg.alt=it.cap||""; lbCap.textContent=it.cap||"";
+    var many=list.length>1;
+    btnPrev.style.display = many ? "" : "none";
+    btnNext.style.display = many ? "" : "none";
+  }
+  function open(set,at){
+    if(!set||!set.length) return;
+    list=set; idx=(at>=0&&at<set.length)?at:0;
+    show(); lb.classList.add("open"); document.body.style.overflow="hidden";
+  }
+  function close(){ lb.classList.remove("open"); document.body.style.overflow=""; lbImg.src=""; list=[]; }
+  function nav(d){ if(list.length<2) return; idx=(idx+d+list.length)%list.length; show(); }
+
+  document.getElementById("lb-close").addEventListener("click", close);
+  btnPrev.addEventListener("click", function(){nav(-1);});
+  btnNext.addEventListener("click", function(){nav(1);});
+  lb.addEventListener("click", function(e){ if(e.target===lb) close(); });
+  document.addEventListener("keydown", function(e){
+    if(!lb.classList.contains("open")) return;
+    if(e.key==="Escape") close();
+    else if(e.key==="ArrowLeft") nav(-1);
+    else if(e.key==="ArrowRight") nav(1);
+  });
+  /* swipe no mobile */
+  var x0=null;
+  lb.addEventListener("touchstart", function(e){ x0=e.changedTouches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend", function(e){
+    if(x0===null) return;
+    var dx=e.changedTouches[0].clientX-x0; x0=null;
+    if(Math.abs(dx)>50) nav(dx<0?1:-1);
+  }, {passive:true});
+
+  return {open:open};
+})();
 (function(){
   var toggle=document.getElementById("nav-toggle"), nav=document.getElementById("top-nav");
   if(!toggle||!nav) return;
@@ -916,6 +1013,14 @@ document.getElementById("ano").textContent = new Date().getFullYear();
         {t:"Praticidade",p:"Baixa manutenção e ampla disponibilidade de cores e padrões, equilibrando custo-benefício e beleza atemporal."}
       ]
     },
+    serpentinito:{
+      titulo:"Serpentinito",
+      blocos:[
+        {t:"Perfil",p:"Rocha metamórfica de tom verde profundo cortado por veios claros. No mercado é frequentemente apresentada dentro da família dos verdes ornamentais."},
+        {t:"Características",p:"Desenho movimentado e cor intensa, com forte presença visual mesmo em peças de pequena dimensão."},
+        {t:"Aplicações",p:"Revestimentos, painéis de destaque, lavabos e detalhes de marcenaria em projetos que pedem um ponto focal de cor."}
+      ]
+    },
     industrializados:{
       titulo:"Industrializados",
       blocos:[
@@ -925,23 +1030,75 @@ document.getElementById("ano").textContent = new Date().getFullYear();
       ]
     }
   };
-  var lb=document.getElementById("lightbox");
-  var lbImg=document.getElementById("lb-img");
-  var lbCap=document.getElementById("lb-cap");
-  function show(){ var it=visible[idx]; if(!it)return; var im=it.querySelector("img"); lbImg.src=im?im.src:""; lbImg.alt=it.getAttribute("data-name"); lbCap.textContent=it.getAttribute("data-name"); }
-  function openAt(it){ rebuildVisible(); idx=visible.indexOf(it); if(idx<0)idx=0; show(); lb.classList.add("open"); document.body.style.overflow="hidden"; }
-  function close(){ lb.classList.remove("open"); document.body.style.overflow=""; lbImg.src=""; }
-  function nav(d){ if(!visible.length)return; idx=(idx+d+visible.length)%visible.length; show(); }
-  items.forEach(function(it){ it.addEventListener("click",function(){ openAt(it); }); });
-  document.getElementById("lb-close").addEventListener("click",close);
-  document.getElementById("lb-prev").addEventListener("click",function(){nav(-1);});
-  document.getElementById("lb-next").addEventListener("click",function(){nav(1);});
-  lb.addEventListener("click",function(e){ if(e.target===lb) close(); });
-  document.addEventListener("keydown",function(e){
-    if(!lb.classList.contains("open"))return;
-    if(e.key==="Escape")close();
-    else if(e.key==="ArrowLeft")nav(-1);
-    else if(e.key==="ArrowRight")nav(1);
+  items.forEach(function(it){
+    it.addEventListener("click",function(){
+      rebuildVisible();
+      var set=visible.map(function(v){ var im=v.querySelector("img"); return {src:im?(im.currentSrc||im.src):"", cap:v.getAttribute("data-name")||""}; });
+      LB.open(set, visible.indexOf(it));
+    });
+  });
+})();
+
+/* ---------- botao do Instagram: abre o app no celular, o perfil no desktop ---------- */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll("[data-ig]"));
+  if(!btns.length) return;
+  var isMobile=/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  btns.forEach(function(b){
+    b.addEventListener("click", function(e){
+      if(!isMobile) return;
+      var user=b.getAttribute("data-ig");
+      e.preventDefault();
+      var t=Date.now();
+      window.location.href="instagram://user?username="+user;
+      setTimeout(function(){
+        if(Date.now()-t<1600){ window.open("https://instagram.com/"+user,"_blank","noopener"); }
+      },1200);
+    });
+  });
+})();
+
+/* ---------- ampliar QUALQUER foto da pagina (projetos, equipe, ambientes) ---------- */
+(function(){
+  var ZOOM_SVG='<span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8.5v5M8.5 11h5"/></svg></span>';
+  var groups=[];
+  [].slice.call(document.querySelectorAll(".ph")).forEach(function(ph){
+    if(ph.closest(".port-item")) return;      /* galeria de chapas ja tem lightbox proprio */
+    if(ph.closest(".cat-card")) return;       /* card de material e um link de filtro */
+    var im=ph.querySelector("img");
+    if(!im) return;
+    var parent=ph.parentElement;
+    var g=groups.filter(function(x){return x.parent===parent;})[0];
+    if(!g){ g={parent:parent, items:[]}; groups.push(g); }
+    g.items.push(ph);
+  });
+
+  groups.forEach(function(g){
+    g.items.forEach(function(ph,i){
+      var im=ph.querySelector("img");
+      ph.classList.add("zoomable");
+      ph.setAttribute("role","button");
+      ph.setAttribute("tabindex","0");
+      ph.setAttribute("aria-label","Ampliar foto: "+(im.alt||"imagem"));
+      ph.insertAdjacentHTML("beforeend", ZOOM_SVG);
+      function build(){
+        return g.items.map(function(p){
+          var pim=p.querySelector("img"), tag=p.querySelector(".tag");
+          return {src:pim?(pim.currentSrc||pim.src):"", cap:(tag?tag.textContent:"")||(pim?pim.alt:"")};
+        }).filter(function(o){return !!o.src;});
+      }
+      function fire(){
+        var set=build();
+        var here=im?(im.currentSrc||im.src):"";
+        var at=0;
+        for(var k=0;k<set.length;k++){ if(set[k].src===here){ at=k; break; } }
+        LB.open(set, at);
+      }
+      ph.addEventListener("click", fire);
+      ph.addEventListener("keydown", function(e){
+        if(e.key==="Enter"||e.key===" "){ e.preventDefault(); fire(); }
+      });
+    });
   });
 })();
 </script>
