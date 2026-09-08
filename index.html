@@ -266,7 +266,10 @@ h3{font-size:1.35rem;letter-spacing:-.03em;font-weight:600}
 @media(max-width:860px){.arch-grid{grid-template-columns:1fr;gap:34px}}
 
 /* ---------- prova social ---------- */
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+.quote .stars{display:block;color:var(--accent);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+.proof-src{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:26px;font-size:12.5px;color:var(--muted);letter-spacing:-.005em;text-align:center}
+.proof-src svg{width:15px;height:15px;flex:none}
 .quote{border:1px solid var(--line);border-radius:2px;padding:28px 26px;background:var(--ink-2)}
 .quote .mark{font-size:2.6rem;color:var(--accent);line-height:.5;display:block;height:24px;font-weight:800}
 .quote p{color:var(--stone);font-size:1.02rem;line-height:1.5;margin:14px 0 16px;font-weight:400;letter-spacing:-.015em}
@@ -704,12 +707,16 @@ footer .brand-logo{height:64px}
       <h2 style="margin-top:18px">Referência em qualidade e atendimento</h2>
     </div>
     <div class="proof-grid">
-      <!-- NOMES ILUSTRATIVOS: substituir pelos nomes reais das avaliações antes da publicação definitiva -->
-      <div class="quote reveal"><span class="mark">”</span><p>Material impecável e prazo cumprido. Consegui apresentar o travertino ao cliente com amostra na mão em poucos dias.</p><span class="who"><b>Carlos Andrade, Arquiteto</b> · Belo Horizonte</span></div>
-      <div class="quote reveal"><span class="mark">”</span><p>Atendimento rápido e sem enrolação. Resolveram a chapa que outra distribuidora não tinha para entregar.</p><span class="who"><b>Juliana Ferreira, Construtora</b> · Contagem</span></div>
-      <div class="quote reveal"><span class="mark">”</span><p>Qualidade do material e transparência na especificação. Virou meu fornecedor de referência em pedras nobres.</p><span class="who"><b>Rafael Souza, Arquiteto</b> · Nova Lima</span></div>
+      <!-- Avaliações reais do Google Meu Negócio da RP -->
+      <div class="quote reveal"><span class="mark">”</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><p>Comprei as pedras da minha cozinha lá, muito atenciosos. Me deixaram escolher as chapas do jeito que eu queria!</p><span class="who"><b>Guilherme Henrique</b> · Avaliação no Google</span></div>
+      <div class="quote reveal"><span class="mark">”</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><p>Distribuidora top, atendimento com excelência.</p><span class="who"><b>SOS Acabamentos Mármores e Granitos</b> · Avaliação no Google</span></div>
+      <div class="quote reveal"><span class="mark">”</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><p>Ótimos preços e excelente atendimento!</p><span class="who"><b>Cristian</b> · Avaliação no Google</span></div>
+      <div class="quote reveal"><span class="mark">”</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><p>Localização ótima. Estacionamento. Área de manobras. Ainda tem aquele cafezinho.</p><span class="who"><b>Walter Gomes</b> · Avaliação no Google</span></div>
+      <!-- Avaliação real deixada de fora porque o autor é o perfil "financeiro RP Marmores" e pode parecer autoavaliação. Para publicar, é só descomentar:
+      <div class="quote reveal"><span class="mark">”</span><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span><p>Melhor distribuidora da região metropolitana de BH. Atendimento excelente e materiais de qualidade. Indico de olhos fechados.</p><span class="who"><b>RP Mármores</b> · Avaliação no Google</span></div>
+      -->
     </div>
-    <p class="proof-note">Espaço reservado para os depoimentos e avaliações reais do Google Meu Negócio da RP.</p>
+    <p class="proof-src"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg> Avaliações publicadas por clientes no perfil da RP no Google.</p>
   </div>
 </section>
 
